@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Spooky Manor" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Spooky Manor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Spooky Manor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="C:/Users/oudot/Documents/Projets/SFML-2.5.1/include" />
+		</Compiler>
+		<Linker>
+			<Add library="sfml-graphics" />
+			<Add library="sfml-audio" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
+			<Add directory="C:/Users/oudot/Documents/Projets/SFML-2.5.1/lib" />
+		</Linker>
+		<Unit filename="icon.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="include/ManorManager.h" />
+		<Unit filename="include/Maze.h" />
+		<Unit filename="include/MazeTile.h" />
+		<Unit filename="include/MiniMap.h" />
+		<Unit filename="include/MonsterFive.h" />
+		<Unit filename="include/MonsterFour.h" />
+		<Unit filename="include/MonsterOne.h" />
+		<Unit filename="include/MonsterSix.h" />
+		<Unit filename="include/MonsterThree.h" />
+		<Unit filename="include/MonsterTwo.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/Rectangle.h" />
+		<Unit filename="include/SpriteComponent.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/ManorManager.cpp" />
+		<Unit filename="src/Maze.cpp" />
+		<Unit filename="src/MazeTile.cpp" />
+		<Unit filename="src/MiniMap.cpp" />
+		<Unit filename="src/MonsterFive.cpp" />
+		<Unit filename="src/MonsterFour.cpp" />
+		<Unit filename="src/MonsterOne.cpp" />
+		<Unit filename="src/MonsterSix.cpp" />
+		<Unit filename="src/MonsterThree.cpp" />
+		<Unit filename="src/MonsterTwo.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Rectangle.cpp" />
+		<Unit filename="src/SpriteComponent.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
