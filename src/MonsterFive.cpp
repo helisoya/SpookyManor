@@ -2,6 +2,7 @@
 #include <ManorManager.h>
 #include <SpriteComponent.h>
 #include <Player.h>
+#include <Monster.h>
 
 MonsterFive::MonsterFive()
 {
@@ -18,22 +19,7 @@ MonsterFive::MonsterFive()
     sprite.sprite.setTexture(texs[position]);
 }
 
-void MonsterFive::Update(){
-    if(manager->inGame!=1 || (sf::Keyboard::isKeyPressed(sf::Keyboard::M) || (manager->isUsingJoystick && sf::Joystick::isButtonPressed(0,0)))){
-        return;
-    }
-
-    if(SpawnAfterFrame>0) {
-        SpawnAfterFrame--;
-    }else if(SpawnAfterFrame != -1) {
-        SpawnAfterFrame = -1;
-        sprite.drawable = true;
-    }
-
-
-    if(!sprite.drawable) {
-        return;
-    }
+void MonsterFive::MonsterLogic(){
 
     sprite.sprite.setPosition(sprite.X,sprite.Y);
     if(sprite.sprite.getTexture() != &texs[position]){
@@ -42,6 +28,7 @@ void MonsterFive::Update(){
 
     if(sprite.X - 30 < manager->player->sprite.X + 25 && manager->player->sprite.X + 25 < sprite.X + 90
        && sprite.Y +100 < manager->player->sprite.Y + 125 && manager->player->sprite.Y + 125 < sprite.Y + 200) {
+        std::cout << "Killed by Monster 5" << std::endl;
         manager->inGame = 2;
         manager->PlaySound(&(manager->sfx_static));
     }
@@ -75,12 +62,4 @@ void MonsterFive::Update(){
         }
         sprite.X+=speed*movX;
         sprite.Y+=speed*movY;
-
-
-}
-
-
-void MonsterFive::SetPosition(std::vector<int> pos){
-    sprite.X = pos.at(0);
-    sprite.Y = pos.at(1);
 }

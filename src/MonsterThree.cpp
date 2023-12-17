@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <ManorManager.h>
 #include <Player.h>
+#include <Monster.h>
 
 MonsterThree::MonsterThree()
 {
@@ -16,10 +17,10 @@ MonsterThree::MonsterThree()
     sprite.sprite.setTexture(texs["front"]);
 }
 
-
-void MonsterThree::SetPosition(std::vector<int> pos){
-    sprite.X = pos.at(0);
-    sprite.Y = pos.at(1)-100;
+void MonsterThree::ChangeMovement(int x, int y,std::string pos){
+    movX = x;
+    movY = y;
+    position = pos;
 }
 
 void MonsterThree::Update(){
@@ -40,8 +41,16 @@ void MonsterThree::Update(){
         return;
     }
 
+    MonsterLogic();
+}
+
+
+
+void MonsterThree::MonsterLogic(){
+
     if(sprite.X - 30 < manager->player->sprite.X + 25 && manager->player->sprite.X + 25 < sprite.X + 90
        && sprite.Y +70 < manager->player->sprite.Y + 125 && manager->player->sprite.Y + 125 < sprite.Y + 170) {
+        std::cout << "Killed by Monster 3" << std::endl;
         manager->inGame = 2;
         manager->PlaySound(&(manager->sfx_static));
     }

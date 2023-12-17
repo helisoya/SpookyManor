@@ -3,6 +3,7 @@
 #include <SpriteComponent.h>
 #include <iostream>
 #include <Player.h>
+#include <Monster.h>
 
 MonsterSix::MonsterSix()
 {
@@ -54,9 +55,12 @@ void MonsterSix::Update(){
             currFrame = 0;
         }
     }
+}
 
+void MonsterSix::MonsterLogic(){
     if(sprite.X - 30 < manager->player->sprite.X + 25 && manager->player->sprite.X + 25 < sprite.X + 90
        && sprite.Y +100 < manager->player->sprite.Y + 125 && manager->player->sprite.Y + 125 < sprite.Y + 200) {
+        std::cout << "Killed by Monster 6" << std::endl;
         manager->inGame = 2;
         manager->PlaySound(&(manager->sfx_static));
     }
@@ -94,9 +98,4 @@ void MonsterSix::Update(){
     if(sprite.sprite.getTexture() != &texs[position][currFrame]){
         sprite.sprite.setTexture(texs[position][currFrame]);
     }
-}
-
-void MonsterSix::SetPosition(std::vector<int> pos){
-    sprite.X = pos.at(0);
-    sprite.Y = pos.at(1)-100;
 }

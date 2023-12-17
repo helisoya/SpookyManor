@@ -1,30 +1,25 @@
 #ifndef MONSTERTHREE_H
 #define MONSTERTHREE_H
+
 #include <SFML/Graphics.hpp>
 #include <SpriteComponent.h>
 #include <iostream>
+#include "Monster.h"
 
 class ManorManager;
-class MonsterThree
+class MonsterThree : public Monster
 {
     public:
-        ManorManager* manager;
-        SpriteComponent sprite;
         MonsterThree();
 
-        int SpawnAfterFrame;
-
-        int movX;
-        int movY;
-        std::string position;
-
-        void SetPosition(std::vector<int> pos);
+        void ChangeMovement(int x,int y,std::string pos);
         void Update();
 
     protected:
+        void MonsterLogic();
 
     private:
-        int speed;
+        std::string position;
         std::map<std::string,sf::Texture> texs;
 };
 

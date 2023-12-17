@@ -65,8 +65,14 @@ void MonsterFour::Update(){
         return;
     }
 
+    MonsterLogic();
+
+}
+
+void MonsterFour::MonsterLogic(){
     if(sprite.X - 30 < manager->player->sprite.X + 25 && manager->player->sprite.X + 25 < sprite.X + 90
        && sprite.Y +100 < manager->player->sprite.Y + 125 && manager->player->sprite.Y + 125 < sprite.Y + 200) {
+        std::cout << "Killed by Monster 4" << std::endl;
         manager->inGame = 2;
         manager->PlaySound(&(manager->sfx_static));
     }
@@ -174,14 +180,8 @@ void MonsterFour::Update(){
             sprite.sprite.setPosition(sprite.X,sprite.Y);
             sprite.sprite.setTexture(texs_walk[position][currFrame]);
     }
-
 }
 
-
-void MonsterFour::SetPosition(std::vector<int> pos){
-    sprite.X = pos.at(0);
-    sprite.Y = pos.at(1)-100;
-}
 
 void MonsterFour::Reset(){
     status = 0;

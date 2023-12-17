@@ -3,6 +3,7 @@
 #include <SpriteComponent.h>
 #include <ManorManager.h>
 #include <iostream>
+#include <Monster.h>
 
 MonsterTwo::MonsterTwo()
 {
@@ -18,14 +19,7 @@ MonsterTwo::MonsterTwo()
     Reset();
 }
 
-void MonsterTwo::Update(){
-    if(manager->inGame!=1 || (sf::Keyboard::isKeyPressed(sf::Keyboard::M) || (manager->isUsingJoystick && sf::Joystick::isButtonPressed(0,0)))){
-        return;
-    }
-
-    if(!sprite.drawable) {
-        return;
-    }
+void MonsterTwo::MonsterLogic(){
 
     if(currFrame<18) {
         if(frameToNext > 0) {
@@ -35,6 +29,7 @@ void MonsterTwo::Update(){
             currFrame++;
         }
     }else {
+        std::cout << "Killed by Monster 2" << std::endl;
         manager->PlaySound(&(manager->sfx_static));
         manager->inGame = 2;
     }

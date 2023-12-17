@@ -200,25 +200,16 @@ void ManorManager::LoadRoom(int X,int Y){
         int c = rand() % possibilities.size();
         m_03->SetPosition(possibilities.at(c));
         if(possibilities.at(c)==start_left){
-            m_03->position = "right";
-            m_03->movX = 1;
-            m_03->movY = 0;
+            m_03->ChangeMovement(1,0,"right");
         }
         else if(possibilities.at(c)==start_right){
-            m_03->position = "left";
-            m_03->movX = -1;
-            m_03->movY = 0;
+            m_03->ChangeMovement(-1,0,"left");
         }
         else if(possibilities.at(c)==start_down){
-
-            m_03->position = "back";
-            m_03->movX = 0;
-            m_03->movY = -1;
+            m_03->ChangeMovement(0,-1,"back");
         }
         else if(possibilities.at(c)==start_up){
-            m_03->position = "front";
-            m_03->movX = 0;
-            m_03->movY = 1;
+            m_03->ChangeMovement(0,1,"front");
         }
         return;
     }

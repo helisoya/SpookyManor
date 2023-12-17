@@ -3,34 +3,31 @@
 #include <SpriteComponent.h>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <Monster.h>
 
 class ManorManager;
 
-class MonsterFour
+class MonsterFour : public Monster
 {
     public:
-        ManorManager* manager;
-
-        SpriteComponent sprite;
-        int SpawnAfterFrame;
 
         MonsterFour();
 
         std::vector<int> exit;
 
-        void SetPosition(std::vector<int> pos);
-        void Update();
         void Reset();
+        void Update();
 
     protected:
 
+        void MonsterLogic();
+
     private:
-        int movX;
-        int movY;
+
         int currFrame;
         int AnimationSpeed;
         int frameToNext;
-        int speed;
+
         int speeds[2];
         int status;
         int WaitForFrame;

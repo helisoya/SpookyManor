@@ -10,18 +10,14 @@
 #include <MonsterFour.h>
 #include <MonsterFive.h>
 #include <MonsterSix.h>
+#include <Monster.h>
 
 using namespace std;
 
 ManorManager manager;
 
 Player player;
-MonsterOne m_01;
-MonsterTwo m_02;
-MonsterThree m_03;
-MonsterFour m_04;
-MonsterFive m_05;
-MonsterSix m_06;
+std::vector<Monster*> monsters;
 
 MiniMap minimap;
 
@@ -57,24 +53,37 @@ void DrawSprites(){
 int main()
 {
 
-    sprites = {&player.sprite,&m_01.sprite,&m_02.sprite,&m_03.sprite,&m_04.sprite,&m_05.sprite,&m_06.sprite};
+    MonsterOne* m_01 = new MonsterOne();
+    MonsterTwo* m_02 = new MonsterTwo();
+    MonsterThree* m_03 = new MonsterThree();
+    MonsterFour* m_04 = new MonsterFour();
+    MonsterFive* m_05 = new MonsterFive();
+    MonsterSix* m_06 = new MonsterSix();
+    monsters.push_back(m_01);
+    monsters.push_back(m_02);
+    monsters.push_back(m_03);
+    monsters.push_back(m_04);
+    monsters.push_back(m_05);
+    monsters.push_back(m_06);
+
+    sprites.push_back(&player.sprite);
+
+    for(int i = 0;i < monsters.size();i++){
+        sprites.push_back(&monsters.at(i)->sprite);
+        monsters.at(i)->manager = &manager;
+    }
+
 
     manager.player = &player;
     manager.minimap = &minimap;
-    manager.m_01 = &m_01;
-    manager.m_02 = &m_02;
-    manager.m_03 = &m_03;
-    manager.m_04 = &m_04;
-    manager.m_05 = &m_05;
-    manager.m_06 = &m_06;
+    manager.m_01 = m_01;
+    manager.m_02 = m_02;
+    manager.m_03 = m_03;
+    manager.m_04 = m_04;
+    manager.m_05 = m_05;
+    manager.m_06 = m_06;
 
     player.manager = &manager;
-    m_01.manager = &manager;
-    m_02.manager = &manager;
-    m_03.manager = &manager;
-    m_04.manager = &manager;
-    m_05.manager = &manager;
-    m_06.manager = &manager;
 
 
     sf::Image icon;
@@ -149,6 +158,7 @@ int main()
             window.draw(logo_s);
             window.draw(text);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || (manager.isUsingJoystick && sf::Joystick::isButtonPressed(0,0))){
+
                 manager.inGame = 1;
                 player.SetPosition(manager.start_middle);
                 manager.Reset();
@@ -172,12 +182,9 @@ int main()
                 MapUpdated = false;
             }
             player.Update();
-            m_01.Update();
-            m_02.Update();
-            m_03.Update();
-            m_04.Update();
-            m_05.Update();
-            m_06.Update();
+            for(int i = 0;i < monsters.size();i++){
+                monsters.at(i)->Update();
+            }
             window.clear(manager.color_floor);
 
             DrawWalls();

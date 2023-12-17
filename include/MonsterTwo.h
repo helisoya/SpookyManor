@@ -2,20 +2,19 @@
 #define MONSTERTWO_H
 #include <SpriteComponent.h>
 #include <SFML/Graphics.hpp>
+#include <Monster.h>
 
 class ManorManager;
 
-class MonsterTwo
+class MonsterTwo : public Monster
 {
     public:
-        SpriteComponent sprite;
-        ManorManager* manager;
         MonsterTwo();
 
-        void Update();
         void Reset();
 
     protected:
+        void MonsterLogic();
 
     private:
         int currFrame;

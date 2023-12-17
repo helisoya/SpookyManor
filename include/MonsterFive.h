@@ -2,26 +2,20 @@
 #define MONSTERFIVE_H
 #include <iostream>
 #include <SpriteComponent.h>
+#include <Monster.h>
 
 class ManorManager;
 
-class MonsterFive
+class MonsterFive : public Monster
 {
     public:
-        SpriteComponent sprite;
-        ManorManager* manager;
-
-        int SpawnAfterFrame;
 
         MonsterFive();
-        void Update();
-        void SetPosition(std::vector<int> pos);
+
     protected:
+        void MonsterLogic();
 
     private:
-        int movX;
-        int movY;
-        int speed;
         std::string position;
         std::map<std::string,sf::Texture> texs;
 };

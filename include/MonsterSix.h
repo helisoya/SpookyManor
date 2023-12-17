@@ -2,29 +2,24 @@
 #define MONSTERSIX_H
 #include <iostream>
 #include <SpriteComponent.h>
+#include <Monster.h>
 
 class ManorManager;
 
-class MonsterSix
+class MonsterSix : public Monster
 {
     public:
-        ManorManager* manager;
-        SpriteComponent sprite;
-        int SpawnAfterFrame;
 
         MonsterSix();
-        void SetPosition(std::vector<int> pos);
         void Update();
 
     protected:
+        void MonsterLogic();
 
     private:
-        int movX;
-        int movY;
         int currFrame;
         int AnimationSpeed;
         int frameToNext;
-        int speed;
         std::string position;
         std::map<std::string,sf::Texture[2]> texs;
 };
