@@ -16,11 +16,13 @@ class Monster
         Monster();
         virtual void Update();
         virtual void SetPosition(std::vector<int> pos);
+        virtual void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
         int movX;
         int movY;
         int speed;
+        sf::SoundBuffer startSFX;
 
         virtual void MonsterLogic();
 };

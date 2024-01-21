@@ -10,6 +10,7 @@ MonsterThree::MonsterThree()
     movY = 0;
     speed = 10;
     SpawnAfterFrame = -1;
+    startSFX.loadFromFile("assets/Audio/m03.wav");
     std::string p[] = {"front","back","left","right"} ;
     for(std::string position : p){
         texs[position].loadFromFile("assets/Monster03/"+position+".png");
@@ -64,4 +65,30 @@ void MonsterThree::MonsterLogic(){
     }else{
         sprite.sprite.setPosition(sprite.X,sprite.Y);
     }
+}
+
+
+void MonsterThree::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    SetPosition(position);
+    SpawnAfterFrame = 40;
+
+    int x;
+    int y;
+
+    if(side.compare("left") == 0){
+        x = -1;
+        y = 0;
+    }else if(side.compare("right") == 0){
+        x = 1;
+        y = 0;
+    }else if(side.compare("back") == 0){
+        x = 0;
+        y = -1;
+    }else{
+        x = 0;
+        y = 1;
+    }
+
+    ChangeMovement(x,y,side);
 }

@@ -66,6 +66,8 @@ int main()
     monsters.push_back(m_05);
     monsters.push_back(m_06);
 
+    manager.monsters = &monsters;
+
     sprites.push_back(&player.sprite);
 
     for(int i = 0;i < monsters.size();i++){
@@ -76,12 +78,6 @@ int main()
 
     manager.player = &player;
     manager.minimap = &minimap;
-    manager.m_01 = m_01;
-    manager.m_02 = m_02;
-    manager.m_03 = m_03;
-    manager.m_04 = m_04;
-    manager.m_05 = m_05;
-    manager.m_06 = m_06;
 
     player.manager = &manager;
 

@@ -16,7 +16,7 @@ MonsterSix::MonsterSix()
     speed = 3;
     SpawnAfterFrame = -1;
     position = "front";
-
+    startSFX.loadFromFile("assets/Audio/m06.wav");
     std::string p[] = {"front","back","left","right"} ;
     for(std::string position : p){
         texs[position][0].loadFromFile("assets/Monster06/"+position+"_01.png");
@@ -28,23 +28,7 @@ MonsterSix::MonsterSix()
 
 }
 
-void MonsterSix::Update(){
-    if(manager->inGame!=1 || (sf::Keyboard::isKeyPressed(sf::Keyboard::M) || (manager->isUsingJoystick && sf::Joystick::isButtonPressed(0,0)))){
-        return;
-    }
-
-    if(SpawnAfterFrame>0) {
-        SpawnAfterFrame--;
-    }else if(SpawnAfterFrame != -1) {
-        SpawnAfterFrame = -1;
-        sprite.drawable = true;
-    }
-
-
-    if(!sprite.drawable) {
-        return;
-    }
-
+void MonsterSix::MonsterLogic(){
     if(frameToNext > 0) {
         frameToNext--;
     }else {
@@ -55,9 +39,7 @@ void MonsterSix::Update(){
             currFrame = 0;
         }
     }
-}
 
-void MonsterSix::MonsterLogic(){
     if(sprite.X - 30 < manager->player->sprite.X + 25 && manager->player->sprite.X + 25 < sprite.X + 90
        && sprite.Y +100 < manager->player->sprite.Y + 125 && manager->player->sprite.Y + 125 < sprite.Y + 200) {
         std::cout << "Killed by Monster 6" << std::endl;
@@ -98,4 +80,10 @@ void MonsterSix::MonsterLogic(){
     if(sprite.sprite.getTexture() != &texs[position][currFrame]){
         sprite.sprite.setTexture(texs[position][currFrame]);
     }
+}
+
+void MonsterSix::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    SpawnAfterFrame = 50;
+    SetPosition(position);
 }

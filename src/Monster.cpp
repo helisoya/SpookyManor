@@ -37,3 +37,7 @@ void Monster::SetPosition(std::vector<int> pos){
 
 void Monster::MonsterLogic(){
 }
+
+void Monster::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    manager->PlaySound(&startSFX);
+}

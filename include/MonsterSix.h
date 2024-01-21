@@ -1,17 +1,17 @@
 #ifndef MONSTERSIX_H
 #define MONSTERSIX_H
+
 #include <iostream>
 #include <SpriteComponent.h>
 #include <Monster.h>
 
 class ManorManager;
-
 class MonsterSix : public Monster
 {
     public:
 
         MonsterSix();
-        void Update();
+        void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
         void MonsterLogic();

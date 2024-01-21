@@ -13,6 +13,7 @@ MonsterTwo::MonsterTwo()
     sprite.X = 400;
     sprite.Y = 400;
     sprite.sprite.setPosition(400,400);
+    startSFX.loadFromFile("assets/Audio/m02.wav");
     for(int i = 0;i<18;i++){
         texs[i].loadFromFile("assets/Monster02/"+std::to_string(i)+".png");
     }
@@ -43,4 +44,11 @@ void MonsterTwo::Reset(){
     currFrame = 0;
     frameToNext = AnimationSpeed;
     sprite.sprite.setTexture(texs[0]);
+}
+
+
+void MonsterTwo::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    Reset();
+    sprite.drawable = true;
 }

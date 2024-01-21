@@ -22,6 +22,7 @@ MonsterFour::MonsterFour()
 
     status = 0;
     WaitForFrame = 60;
+    startSFX.loadFromFile("assets/Audio/m04.wav");
 
     std::string p[] = {"front","back","left","right"} ;
     for(std::string position : p){
@@ -83,7 +84,6 @@ void MonsterFour::MonsterLogic(){
 
     switch(status){
         case 0:
-            exit.at(1)-=100;
             movX = 0;
             movY = 0;
             if(sprite.X==50){
@@ -93,10 +93,10 @@ void MonsterFour::MonsterLogic(){
                 movX = -1;
                 position = "left";
             }
-            if(sprite.Y==-50){
+            if(sprite.Y==50){
                 movY = 1;
                 position = "front";
-            }else if(sprite.Y==650){
+            }else if(sprite.Y==720){
                 movY = -1;
                 position = "back";
             }
@@ -106,7 +106,7 @@ void MonsterFour::MonsterLogic(){
             status++;
             break;
         case 1:
-            if(sprite.X==400 && sprite.Y==400){
+            if(sprite.X==400 && sprite.Y==350){
                 status++;
                 sprite.sprite.setTexture(texs_idle[position]);
             }else{
@@ -133,10 +133,10 @@ void MonsterFour::MonsterLogic(){
                 movX = 1;
                 position = "right";
             }
-            if(exit.at(1)==-50){
+            if(exit.at(1)==50){
                 movY = -1;
                 position = "back";
-            }else if(exit.at(1)==650){
+            }else if(exit.at(1)==720){
                 movY = 1;
                 position = "front";
             }
@@ -188,3 +188,13 @@ void MonsterFour::Reset(){
     speed = speeds[0];
     WaitForFrame = 60;
 }
+
+
+void MonsterFour::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    Reset();
+    SpawnAfterFrame = 120;
+    SetPosition(position);
+    exit = exitPosition;
+}
+

@@ -33,18 +33,12 @@ ManorManager::ManorManager()
     inGame = 0;
 
     start_middle = {400,400};
-    start_left = {50,400};
-    start_right = {750,400};
+    start_left = {50,350};
+    start_right = {750,350};
     start_up = {400,50};
     start_down = {400,720};
 
     sfx_static.loadFromFile("assets/Audio/static.wav");
-    sfx_m01.loadFromFile("assets/Audio/m01.wav");
-    sfx_m02.loadFromFile("assets/Audio/m02.wav");
-    sfx_m03.loadFromFile("assets/Audio/m03.wav");
-    sfx_m04.loadFromFile("assets/Audio/m04.wav");
-    sfx_m05.loadFromFile("assets/Audio/m05.wav");
-    sfx_m06.loadFromFile("assets/Audio/m06.wav");
 
     walls.push_back(new Rectangle(250,0,300,100)); // PORTE NORD - 0
     walls.push_back(new Rectangle(250,700,300,100)); // PORTE SUD - 1
@@ -166,22 +160,41 @@ void ManorManager::LoadRoom(int X,int Y){
 
     UpdateMinimap();
 
-    m_01->sprite.drawable = false;
-    m_02->sprite.drawable = false;
-    m_03->sprite.drawable = false;
-    m_04->sprite.drawable = false;
-    m_05->sprite.drawable = false;
-    m_06->sprite.drawable = false;
-    m_01->SpawnAfterFrame = -1;
-    m_03->SpawnAfterFrame = -1;
-    m_04->SpawnAfterFrame = -1;
-    m_05->SpawnAfterFrame = -1;
-    m_06->SpawnAfterFrame = -1;
+    for(int i = 0;i < monsters->size();i++){
+        monsters->at(i)->SpawnAfterFrame = -1;
+        monsters->at(i)->sprite.drawable = false;
+    }
 
     if(posX == startX && posY == startY){
         return;
     }
 
+    if(rand() % 6 <= 2){
+        int chosenIndex = rand() % monsters->size();
+        Monster* chosenMonster = monsters->at(chosenIndex);
+
+        int nbPossibilities = possibilities.size();
+        std::vector<int> start = possibilities.at(rand() % nbPossibilities);
+        std::vector<int> exit = possibilities.at(rand() % nbPossibilities);
+        std::string side;
+        if(start==start_left){
+            side = "right";
+        }
+        else if(start==start_right){
+            side = "left";
+        }
+        else if(start==start_down){
+            side = "back";
+        }
+        else{
+            side = "front";
+        }
+
+        chosenMonster->Init(start,side,exit);
+        return;
+    }
+
+    /*
     if(rand() % 100 <= 20){ // Monstre 1 - Zombie Blanc
         PlaySound(&sfx_m01);
         m_01->SpawnAfterFrame = 40;
@@ -232,7 +245,7 @@ void ManorManager::LoadRoom(int X,int Y){
         m_06->SpawnAfterFrame = 50;
         m_06->SetPosition(possibilities.at(rand() % possibilities.size()));
         return;
-    }
+    }*/
 
 }
 

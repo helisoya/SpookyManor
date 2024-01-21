@@ -17,6 +17,7 @@ class MonsterFour : public Monster
 
         void Reset();
         void Update();
+        void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
 

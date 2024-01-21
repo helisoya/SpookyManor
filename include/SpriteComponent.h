@@ -24,4 +24,5 @@ class SpriteComponent
     private:
 };
 
+
 #endif // SPRITECOMPONENT_H

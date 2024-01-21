@@ -12,6 +12,7 @@ class MonsterTwo : public Monster
         MonsterTwo();
 
         void Reset();
+        void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
         void MonsterLogic();

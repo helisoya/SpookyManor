@@ -16,6 +16,7 @@ MonsterOne::MonsterOne()
     speed = 1;
     SpawnAfterFrame = -1;
     position = "front";
+    startSFX.loadFromFile("assets/Audio/m01.wav");
 
     std::string p[] = {"front","back","left","right"} ;
     for(std::string position : p){
@@ -81,4 +82,10 @@ void MonsterOne::MonsterLogic(){
     if(sprite.sprite.getTexture() != &texs[position][currFrame]){
         sprite.sprite.setTexture(texs[position][currFrame]);
     }
+}
+
+void MonsterOne::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    SpawnAfterFrame = 40;
+    SetPosition(position);
 }

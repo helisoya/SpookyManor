@@ -12,6 +12,7 @@ MonsterFive::MonsterFive()
     movY = 0;
     position = "front";
     speed = 1;
+    startSFX.loadFromFile("assets/Audio/m05.wav");
     std::string p[] = {"front","back","left","right"} ;
     for(std::string position : p){
         texs[position].loadFromFile("assets/Monster05/"+position+".png");
@@ -62,4 +63,11 @@ void MonsterFive::MonsterLogic(){
         }
         sprite.X+=speed*movX;
         sprite.Y+=speed*movY;
+}
+
+
+void MonsterFive::Init(std::vector<int> position,std::string side,std::vector<int> exitPosition){
+    Monster::Init(position,side,exitPosition);
+    SpawnAfterFrame = 40;
+    SetPosition(position);
 }

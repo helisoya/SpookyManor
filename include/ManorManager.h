@@ -15,17 +15,14 @@ class MonsterFour;
 class MonsterFive;
 class MonsterSix;
 class Player;
+class Monster;
 
 class ManorManager
 {
     public:
         Player* player;
-        MonsterOne* m_01;
-        MonsterTwo* m_02;
-        MonsterThree* m_03;
-        MonsterFour* m_04;
-        MonsterFive* m_05;
-        MonsterSix* m_06;
+
+        std::vector<Monster*>* monsters;
 
         MiniMap* minimap;
 
@@ -40,13 +37,6 @@ class ManorManager
         sf::Color minimap_exit;
 
         sf::SoundBuffer sfx_static;
-        sf::SoundBuffer sfx_m01;
-        sf::SoundBuffer sfx_m02;
-        sf::SoundBuffer sfx_m03;
-        sf::SoundBuffer sfx_m04;
-        sf::SoundBuffer sfx_m05;
-        sf::SoundBuffer sfx_m06;
-
         sf::Sound sound;
 
         bool isUsingJoystick;

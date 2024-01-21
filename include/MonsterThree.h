@@ -14,6 +14,7 @@ class MonsterThree : public Monster
 
         void ChangeMovement(int x,int y,std::string pos);
         void Update();
+        void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
         void MonsterLogic();

@@ -673,7 +673,7 @@
 
 1629727281 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\icon.rc
 
-1702808187 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\main.cpp
+1705842498 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<ManorManager.h>
@@ -686,6 +686,7 @@
 	<MonsterFour.h>
 	<MonsterFive.h>
 	<MonsterSix.h>
+	<Monster.h>
 
 1629631970 c:\users\oudot\documents\projets\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1096,7 +1097,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1631547732 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\manormanager.h
+1704043127 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\manormanager.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	<Rectangle.h>
@@ -1228,42 +1229,42 @@
 	<iostream>
 	<vector>
 
-1629719012 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\spritecomponent.h
+1705841677 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\spritecomponent.h
 	<SFML/Graphics.hpp>
 
-1702805985 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterone.h
+1705842902 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterone.h
 	<iostream>
 	<SpriteComponent.h>
 	"Monster.h"
 
-1702808146 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monstertwo.h
+1704039501 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monstertwo.h
 	<SpriteComponent.h>
 	<SFML/Graphics.hpp>
 	<Monster.h>
 
-1702809228 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterthree.h
+1704039484 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterthree.h
 	<SFML/Graphics.hpp>
 	<SpriteComponent.h>
 	<iostream>
 	"Monster.h"
 
-1702809236 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterfour.h
+1705841566 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterfour.h
 	<SpriteComponent.h>
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Monster.h>
 
-1702809510 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterfive.h
+1704039514 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monsterfive.h
 	<iostream>
 	<SpriteComponent.h>
 	<Monster.h>
 
-1702809866 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monstersix.h
+1705843008 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monstersix.h
 	<iostream>
 	<SpriteComponent.h>
 	<Monster.h>
 
-1702808690 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\manormanager.cpp
+1705841695 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\manormanager.cpp
 	"ManorManager.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -1294,14 +1295,14 @@
 	<SFML/Graphics.hpp>
 	<vector>
 
-1702809545 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterfive.cpp
+1704039555 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterfive.cpp
 	"MonsterFive.h"
 	<ManorManager.h>
 	<SpriteComponent.h>
 	<Player.h>
 	<Monster.h>
 
-1702809140 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterfour.cpp
+1705841954 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterfour.cpp
 	"MonsterFour.h"
 	<ManorManager.h>
 	<SpriteComponent.h>
@@ -1309,7 +1310,7 @@
 	<iostream>
 	<Player.h>
 
-1702806023 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterone.cpp
+1704039528 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterone.cpp
 	"MonsterOne.h"
 	<ManorManager.h>
 	<SpriteComponent.h>
@@ -1317,7 +1318,7 @@
 	<Player.h>
 	<Monster.h>
 
-1702809880 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monstersix.cpp
+1705843005 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monstersix.cpp
 	"MonsterSix.h"
 	<ManorManager.h>
 	<SpriteComponent.h>
@@ -1325,14 +1326,14 @@
 	<Player.h>
 	<Monster.h>
 
-1702809209 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterthree.cpp
+1705842455 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monsterthree.cpp
 	"MonsterThree.h"
 	<SFML/Graphics.hpp>
 	<ManorManager.h>
 	<Player.h>
 	<Monster.h>
 
-1702806797 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monstertwo.cpp
+1704039672 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monstertwo.cpp
 	"MonsterTwo.h"
 	<SFML/Graphics.hpp>
 	<SpriteComponent.h>
@@ -1354,10 +1355,10 @@
 1629718249 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\spritecomponent.cpp
 	"SpriteComponent.h"
 
-1702805627 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monster.h
+1705841667 c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\include\monster.h
 	"SpriteComponent.h"
 	"ManorManager.h"
 
-1702808191 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monster.cpp
+1705842700 source:c:\users\oudot\documents\projets\backup\spooky manor\spooky manor\src\monster.cpp
 	"Monster.h"
 

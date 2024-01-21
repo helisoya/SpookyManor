@@ -11,6 +11,7 @@ class MonsterFive : public Monster
     public:
 
         MonsterFive();
+        void Init(std::vector<int> position,std::string side,std::vector<int> exitPosition);
 
     protected:
         void MonsterLogic();
